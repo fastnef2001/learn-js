@@ -1,3 +1,0 @@
-// Toan Tu Logic: && || !
-
-con

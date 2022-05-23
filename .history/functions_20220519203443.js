@@ -1,2 +1,0 @@
-// function (hàm)
-// Khai báo
