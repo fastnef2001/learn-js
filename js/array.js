@@ -148,3 +148,30 @@ console.log("----------20.reduce------------")
 // gom các phần tử trong mảng lại thành 1
 const totalNumber = listNumber.reduce((previosValue, currentValue) => previosValue + currentValue, 0);
 console.log(totalNumber);
+
+
+console.log("----------Bài tập về mảng số 1------------")
+// Đảo ngược một chuỗi. 
+function reverseString(str) {
+   if (!str) return null;
+   const arrStr = str.split(" ");
+   const reverseStr = arrStr.reverse();
+   const strAfterJoin = reverseStr.join(" ");
+   return strAfterJoin;
+}
+const a = reverseString("Nhanh dep trai");
+console.log(a);
+
+
+console.log("----------Bài tập về mảng số 2------------")
+//Đảo ngược một chuỗi bao gồm các kí tự
+function reverseWord(str) {
+     if(!str) return null;
+     return str.split("").reverse().join("")
+}
+console.log(reverseWord("i love"));
+
+
+
+console.log("----------Bài tập về mảng số 3------------")
+// in hoa chữ cái đầu trong chữ
