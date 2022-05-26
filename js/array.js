@@ -175,3 +175,16 @@ console.log(reverseWord("i love"));
 
 console.log("----------Bài tập về mảng số 3------------")
 // in hoa chữ cái đầu trong chữ
+function capitalizeWord(str = "") {
+   if(str.length === 0) return null;
+   let newWord = str.toLowerCase().charAt(0).toUpperCase();
+   let otherWord = str.toLowerCase().slice(1);
+   return `${newWord}${otherWord}`;
+}
+
+function capitalizeStr(str) {
+   if(!str) return null;
+   const result = str.split(" ").map(word => capitalizeWord(word)).join(" ");
+   console.log(result);
+}
+capitalizeStr("i love you");
