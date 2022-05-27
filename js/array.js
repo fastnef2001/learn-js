@@ -188,3 +188,235 @@ function capitalizeStr(str) {
    console.log(result);
 }
 capitalizeStr("i love you");
+
+
+console.log("----------21. by value vs by referrence------------")
+console.log("----------21.1 by value -> gía trị thực sự lưu trong vùng bộ nhớ------------")
+const num1 = 1;
+const num2 = 1;
+console.log(num1 === num2); // true
+
+
+console.log("----------21.2 by referrence -> nói tới vùng bộ nhớ------------")
+const arr1 = [1, 2];
+const arr2 = [1, 2];
+console.log(arr1 === arr2); // false
+
+
+console.log("----------21.3 so sánh 2 mảng cơ bản------------")
+// JSON: javascript object notation
+// JSON.stringify() -> convert giá trị sang dưới dạng JSON string
+// JSON.parse()
+console.log(JSON.stringify(arr1) === JSON.stringify(arr2)); // true
+console.log(JSON.parse('[1,2,3]'));
+
+console.log("----------22. cách seo chép mảng cần biết------------")
+const students3 = ["a", "b", "c", "d", "e", "f"];
+// 1. sử dụng phương thức slice()
+const students4 = students3.slice();
+console.log(students4);
+// 2. sử dụng phương thức spread operator [ ...array]
+const students5 = [...students3];
+console.log(students5);
+
+console.log("----------23. cách gộp mảng cần nắm------------")
+// 1. concat
+const array1 = [1, 2];
+const array2 = [3, 4];
+const array3 = [5, 6];
+const mergeArray = array1.concat(array2, array3);
+console.log(mergeArray);
+
+//2. [...array1, ...array2, ...array3]
+const mergeArray2 = [...array1, ...array2, ...array3];
+console.log(mergeArray2);
+
+
+console.log("----------24. destructing array------------")
+const toys = ["car", "ball", "doll", "truck", "train"];
+const [toy1, toy2, toy3] = toys;
+console.log(toy1, toy2, toy3);
+
+console.log("----------25. rest parameter------------")
+const [car,...rest] = toys;
+console.log(rest);
+
+// rest không chỉ được sử dụng trong mảng mà còn được sử dụng trong các function
+function demo(a, ...rest) {
+   console.log(a, rest);
+}
+demo(1, 2, 3, 4, 5);
+
+
+console.log("----------26. vòng lặp for cơ bản ------------")
+// for (let i = 0; i < toys.length; i++) {
+   
+//    // if (i === 2) {
+//    //    break;
+//    // }
+//    if (i === 3) {
+//       continue;
+//    }
+//    console.log(toys[i]);
+// }
+ 
+for (let i = toys.length - 1; i >= 0; i--) {
+   console.log(toys[i]);
+   for (let j = 0; j < toys.length; j++) {
+      console.log(toys[j]);
+   }
+}
+//break dừng vòng lặp
+//continue dừng vòng lặp và tiếp tục vòng lặp ở vị trí i
+
+console.log("----------Bài tập cơ bản về vòng lặp for------------")
+// 1. sao chép mảng dùng vòng lặp for
+let copyArr = [];
+for (let i = 0; i < toys.length; i++) {
+   copyArr.push(toys[i]);
+}
+console.log(copyArr);
+// 2. Đảo ngược từ dùng vòng lặp for
+let str = "i love you";
+let resualt = "";
+
+for (let i = str.length - 1; i >= 0; i--) {
+   console.log(str[i]);
+   resualt += str[i];
+   
+}
+console.log(resualt);
+
+
+console.log("----------27. vòng lặp while và do while------------")
+//1. while 
+let number = 0;
+while (number < 10) { 
+   console.log(number);
+   number++;
+}
+ 
+let number2 = 0;
+do {
+   number2++;
+   console.log(number2);
+} while (number2 < 10);
+
+
+console.log("----------28. vòng lặp for of------------")
+let b = [];
+for (let toy of toys) {
+   toy +=" nhanh";
+   console.log(toy);
+   b.push(toy);
+}
+console.log(b);
+
+console.log("----------bài tập 1------------")
+// 1. cho 1 mảng gồm nhiều giá trị [1,1000,false,null,"nhanh", "", undefined, [1,2,3]].
+// viết chương trình loại bỏ các giá trị là falsy (false, null, undefined, "", NaN)
+const arrayFalseTrue = [1, 1000, false, null, "nhanh", "", undefined, [1,2,3], NaN];
+let arrayFalse = arrayFalseTrue.filter(item => Boolean(item));
+console.log(arrayFalse);
+let arrayFalses = arrayFalseTrue.filter(item => !Boolean(item));
+console.log(arrayFalses);
+
+
+console.log("----------bài tập 2------------")
+// 2. cho một mảng phức tạp [[1,2,3],[false, null], [1,5,6, ["nhanh"]], [888,666, [90]]].
+// và kết quả mong muốn là [1,2,3,false,null,1,5,6,"nhanh",888,666,90]
+const complexArray = [[1,2,3],[false, null], [1,5,6, ["nhanh"]], [888,666, [90]]];
+const result = complexArray.flat(Infinity);
+console.log(result);
+
+console.log("----------bài tập 3------------")
+// 3. đảo ngược số nguyên. 
+function reverseNumber(number = 0) {
+
+   const result = parseInt(number.toString().split("").reverse().join("")) * Math.sign(number);
+   return result;
+}
+console.log(reverseNumber(-12345));
+
+
+console.log("----------bài tập 4------------")
+// 4. viết chương trình có tên là fizzBuzz với đầu vào là một số nguyên, và cho chạy từ 1 cho tới số nguyên đó
+// rồi kiểm tra xem nếu có số chia hết cho 2 thì in ra chữ "Fizz", nếu chia hết cho 3 thì in ra chữ "Buzz", 
+// nếu chia hết cho 2 và 3 thì in ra chữ "FizzBuzz", nếu không thì in ra số đó.
+
+function fizzBuzz(number) {
+   for (let i = 1; i <= number; i++) 
+   {
+      if (i % 2 === 0 && i % 3 === 0) {
+         console.log("FizzBuzz");
+      } else if (i % 2 === 0) {
+         console.log("Fizz");
+      } else if (i % 3 === 0) {
+         console.log("Buzz");
+      } else {
+         console.log(i);
+      }
+   }
+}
+
+fizzBuzz(100);
+
+console.log("----------bài tập 5------------")
+// 5. cho 1 chuỗi bất kỳ, đếm số lượng ký tự vovel trong chuỗi
+// vovel: a, e, i, o, u, y
+
+function countVowel(str) {
+   let count = 0;
+   const vowels = ["a", "e", "i", "o", "u", "y"];
+   for (let i = 0; i < str.length; i++) {
+      if (vowels.includes(str[i])) {
+         count++;
+      }
+   }
+   return count;
+}
+console.log(countVowel("nhanh"));
+
+console.log("----------bài tập 6------------")
+// 6. cho 1 mảng các giá trị số [1,2,3,4,5,6,7,8,9,10,1,3,4,5,6,7,8,9].
+// viết một function trả về một mảng chưá các giá trị duy nhất trong mảng đó.
+
+function unique(arr) {
+   let result = [];
+   for (let i = 0; i < arr.length; i++) {
+      if (!result.includes(arr[i])) {
+         result.push(arr[i]);
+      }
+   }
+   return result;
+}
+
+console.log(unique([1,2,3,4,5,6,7,8,9,10,1,3,4,5,6,7,8,9]));
+
+
+console.log("----------bài tập 7------------")
+// 7. viết 1 function xử lý các từ 1 mảng lớn thành nhiều mảng con dựa vào số nguyên đầu vào.
+// ví dụ ([1,2,3,4,5] , 2) => [[1,2],[3,4],[5]]
+function splitArray(arr, number) {
+   let result = [];
+   let temp = [];
+   for (let i = 0; i < arr.length; i++) {
+      temp.push(arr[i]);
+      if (temp.length === number) {
+         result.push(temp);
+         temp = [];
+      }
+   }
+   return result;
+}
+
+console.log(splitArray([1,2,3,4,5], 2));
+
+function test(arr, n) {
+   let result = [];
+   for (let i = 0; i < arr.length; i += n) {
+      result.push(arr.slice(i, i + n));
+   }
+   return result;
+}
+console.log(test([1,2,3,4,5], 2));
