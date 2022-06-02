@@ -1,0 +1,159 @@
+.modal {
+    position: fixed;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 99999;
+     /* cho thẻ div vào giữa */
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s linear;
+    
+}
+
+.modal.is-show {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+.modal-content {
+    width: 500px;
+    height: 300px;
+    background: #fff;
+    border-radius: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* đưa tất cả các thẻ con vào giữa */
+    align-items: center;
+}
+
+.modal-desc {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 20px;
+    /* justify */
+    text-align: justify;
+   
+} 
+
+.modal-submit {
+    align-items: center;
+    font-weight: bold;
+    font-size: 20px;
+    color: #00b300;
+    margin-right: 10px;
+    width: 100%;
+    background-color: #ffffff;
+    border-radius: 20px;
+    border: 1px solid rgb(0, 0, 0);
+   
+}
+/* how to use hover */
+.modal-submit:hover {
+    background-color: #70bd70;
+    color: #ffffff;
+}
+
+
+
+
+.modal-cancel {
+    align-items: center;
+    font-weight: bold;
+    font-size: 20px;
+    color:red   ;
+    margin-left: 10px;
+    width: 100%;
+    background-color: #ffffff;
+    border-radius: 20px;
+    border: 1px solid rgb(0, 0, 0);
+    
+}
+/* how to use hover */
+.modal-cancel:hover {
+    background-color: #b66767;
+    color: #ffffff;
+}
+
+.modal-action {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.noti {
+    position: fixed;
+    left: 15px;
+    bottom: 15px;
+    background-color: #ffffff;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 8px;
+    display: flex;
+    max-width:400px;
+    height: 130px;
+    transition: transform(150%);
+    animation: noti 4s forwards 1 linear;
+} 
+
+@keyframes noti {
+    20%,
+    80%{
+        transform: translateY(0);
+    }
+    100%{
+        transform: translateY(150%);
+    }
+}
+
+.noti-image {
+    width: 30%;
+    flex-shrink: 0;
+    border-radius: inherit;
+    object-fit: cover;
+}
+.noti-content {
+    padding: 15px;
+    flex: 1;
+}
+
+
+.noti-title {
+    font-weight: 600;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.noti-desc {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.nhan {
+   
+    width: 100%;
+    height: 100%;
+    background-color: rgba(235, 235, 235, 0.5);
+    z-index: 99999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 30px solid #000000;
+    
+}
